@@ -13,6 +13,7 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatTableModule} from "@angular/material/table";
 import {MatBadgeModule} from "@angular/material/badge";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {TestComponent} from "./test/test.component";
 
 @Component({
   selector: 'app-root',
@@ -32,6 +33,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     MatTableModule,
     MatBadgeModule,
     MatSnackBarModule,
+    TestComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
