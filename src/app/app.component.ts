@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatMenuModule} from "@angular/material/menu";
@@ -13,7 +14,8 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatTableModule} from "@angular/material/table";
 import {MatBadgeModule} from "@angular/material/badge";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
-import {TestComponent} from "./test/test.component";
+import {AddCoffeeComponent} from "./add-coffee/add-coffee.component";
+import {CoffeeListComponent} from "./coffee-list/coffee-list.component";
 
 @Component({
   selector: 'app-root',
@@ -21,6 +23,7 @@ import {TestComponent} from "./test/test.component";
   imports: [
     CommonModule,
     RouterOutlet,
+    HttpClientModule,
     MatSidenavModule,
     MatGridListModule,
     MatMenuModule,
@@ -33,7 +36,8 @@ import {TestComponent} from "./test/test.component";
     MatTableModule,
     MatBadgeModule,
     MatSnackBarModule,
-    TestComponent,
+    AddCoffeeComponent,
+    CoffeeListComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

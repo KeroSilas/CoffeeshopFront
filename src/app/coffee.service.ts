@@ -1,34 +1,31 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {CoffeeModel} from "./test/coffee.model";
+import {CoffeeModel} from "./add-coffee/coffee.model";
 
 @Injectable({
   providedIn: 'root'
 })
-
 export class CoffeeService {
   private baseUrl = "http://localhost:5245/api/coffee/";
 
-  constructor(private http: HttpClient) { }
-
-  getCoffees() : Observable<Object> {
-    return this.http.get(this.baseUrl + "/getpredefinedcoffees");
+  constructor(private http: HttpClient) {
   }
 
-  addCoffee(coffee: CoffeeModel) : Observable<any> {
-    return this.http.post(this.baseUrl + "/predefinedcoffee", coffee);
+  getCoffees(): Observable<CoffeeModel[]> {
+    return this.http.get<CoffeeModel[]>(this.baseUrl + "GetPredefinedCoffees");
   }
 
-  deleteCoffee(id: string) : Observable<any> {
-    return this.http.delete(this.baseUrl + "/predefinedcoffee/" + id);
+  getCoffeeById(id: number): Observable<CoffeeModel> {
+    return this.http.get<CoffeeModel>(this.baseUrl + "PredefinedCoffee/" + id);
   }
 
-  getCoffee(id: string) : Observable<any> {
-    return this.http.get(this.baseUrl + "/predefinedcoffee/" + id);
+  createCoffee(coffee: CoffeeModel): Observable<CoffeeModel> {
+    return this.http.post<CoffeeModel>(this.baseUrl + "PredefinedCoffee/", coffee);
   }
 
-  updateCoffee(id: string, coffee: CoffeeModel) : Observable<any> {
-    return this.http.put(this.baseUrl + "/predefinedcoffee/" + id, coffee);
+  updateCoffee(id: number, coffee: CoffeeModel): Observable<CoffeeModel> {
+    return this.http.put<CoffeeModel>(this.baseUrl + "PredefinedCoffee/" + id, coffee);
   }
+
 }
