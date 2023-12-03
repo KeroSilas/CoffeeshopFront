@@ -16,7 +16,7 @@ export class CoffeeService {
     return this.http.get<CoffeeModel[]>(this.baseUrl + "GetPredefinedCoffees");
   }
 
-  getCoffeeById(id: number): Observable<CoffeeModel> {
+  getCoffeeById(id: string): Observable<CoffeeModel> {
     return this.http.get<CoffeeModel>(this.baseUrl + "PredefinedCoffee/" + id);
   }
 
@@ -24,8 +24,12 @@ export class CoffeeService {
     return this.http.post<CoffeeModel>(this.baseUrl + "PredefinedCoffee/", coffee);
   }
 
-  updateCoffee(id: number, coffee: CoffeeModel): Observable<CoffeeModel> {
+  updateCoffee(id: string, coffee: CoffeeModel): Observable<CoffeeModel> {
     return this.http.put<CoffeeModel>(this.baseUrl + "PredefinedCoffee/" + id, coffee);
+  }
+
+  deleteCoffee(id: string): Observable<CoffeeModel> {
+    return this.http.delete<CoffeeModel>(this.baseUrl + "PredefinedCoffee/" + id);
   }
 
 }

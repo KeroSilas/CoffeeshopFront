@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {CoffeeModel} from "../add-coffee/coffee.model";
 
@@ -10,9 +10,11 @@ import {CoffeeModel} from "../add-coffee/coffee.model";
   styleUrl: './coffee-list.component.css',
 })
 
-export class CoffeeListComponent implements OnInit{
+export class CoffeeListComponent{
+  @Output() coffeeToDelete: EventEmitter<CoffeeModel> = new EventEmitter<CoffeeModel>();
   @Input() coffeeList: CoffeeModel[] = [];
 
-   ngOnInit() {
-   }
+    deleteCoffee(coffee: CoffeeModel) {
+      this.coffeeToDelete.emit(coffee);
+    }
 }

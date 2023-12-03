@@ -1,3 +1,6 @@
-<div *ngFor="let coffee of coffeeList" class="text-white">
-  <p>{{coffee.name}}</p>
-</div>
+<ul>
+  <li *ngFor="let coffee of coffeeList" class="bg-slate-900 text-white text flex mb-1.5 border rounded-md p-1.5 border-slate-800">
+    <p class="flex-auto translate-y-1.5 pl-2">{{coffee.name}}</p>
+    <button type="button" (click)="deleteCoffee(coffee)" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-md text-sm w-full sm:w-auto px-3 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-blue-red">x</button>
+  </li>
+</ul>
