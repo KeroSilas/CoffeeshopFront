@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatGridListModule} from "@angular/material/grid-list";
@@ -16,6 +16,8 @@ import {MatBadgeModule} from "@angular/material/badge";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {AddCoffeeComponent} from "./add-coffee/add-coffee.component";
 import {CoffeeListComponent} from "./coffee-list/coffee-list.component";
+import {CoffeeDetailComponent} from "./coffee-detail/coffee-detail.component";
+import {HeaderComponent} from "./header/header.component";
 
 @Component({
   selector: 'app-root',
@@ -23,6 +25,8 @@ import {CoffeeListComponent} from "./coffee-list/coffee-list.component";
   imports: [
     CommonModule,
     RouterOutlet,
+    RouterLink,
+    RouterLinkActive,
     HttpClientModule,
     MatSidenavModule,
     MatGridListModule,
@@ -38,10 +42,12 @@ import {CoffeeListComponent} from "./coffee-list/coffee-list.component";
     MatSnackBarModule,
     AddCoffeeComponent,
     CoffeeListComponent,
+    CoffeeDetailComponent,
+    HeaderComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'CoffeeshopFront';
+  title = 'Coffee-shop';
 }

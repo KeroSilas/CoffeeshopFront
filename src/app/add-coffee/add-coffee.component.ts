@@ -5,11 +5,12 @@ import { CoffeeModel } from "./coffee.model";
 import { FormsModule } from "@angular/forms";
 import { Guid } from "guid-typescript";
 import {CoffeeListComponent} from "../coffee-list/coffee-list.component";
+import {RouterOutlet} from "@angular/router";
 
 @Component({
   selector: 'app-add-coffee',
   standalone: true,
-  imports: [CommonModule, FormsModule, CoffeeListComponent],
+  imports: [CommonModule, FormsModule, CoffeeListComponent, RouterOutlet],
   templateUrl: './add-coffee.component.html',
   styleUrl: './add-coffee.component.css',
   providers: [CoffeeService]
