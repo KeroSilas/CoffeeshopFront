@@ -56,6 +56,8 @@ export class LoginComponent {
       } else {
         alert("Incorrect password.");
       }
+    }, () => {
+      alert("Incorrect username.");
     });
   }
 
