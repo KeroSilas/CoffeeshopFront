@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CoffeeService } from "../coffee.service";
-import { CoffeeModel } from "../models/coffee.model";
+import { CoffeeService } from "../../services/coffee.service";
+import { CoffeeModel } from "../../models/coffee.model";
 import { FormsModule } from "@angular/forms";
 import { Guid } from "guid-typescript";
 import {CoffeeListComponent} from "../coffee-list/coffee-list.component";

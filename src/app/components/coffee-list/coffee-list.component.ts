@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {CoffeeModel} from "../models/coffee.model";
+import {CoffeeModel} from "../../models/coffee.model";
 import {Router, RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
 import {CoffeeDetailComponent} from "../coffee-detail/coffee-detail.component";
 
