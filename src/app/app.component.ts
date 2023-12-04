@@ -14,10 +14,10 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatTableModule} from "@angular/material/table";
 import {MatBadgeModule} from "@angular/material/badge";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
-import {AddCoffeeComponent} from "./add-coffee/add-coffee.component";
-import {CoffeeListComponent} from "./coffee-list/coffee-list.component";
-import {CoffeeDetailComponent} from "./coffee-detail/coffee-detail.component";
-import {HeaderComponent} from "./header/header.component";
+import {AddCoffeeComponent} from "./components/add-coffee/add-coffee.component";
+import {CoffeeListComponent} from "./components/coffee-list/coffee-list.component";
+import {CoffeeDetailComponent} from "./components/coffee-detail/coffee-detail.component";
+import {HeaderComponent} from "./components/header/header.component";
 
 @Component({
   selector: 'app-root',
