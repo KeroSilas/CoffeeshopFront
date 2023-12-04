@@ -20,6 +20,10 @@ export class UserService {
     return this.http.get<UserModel>(this.baseUrl + id);
   }
 
+  getUserByUserName(userName: string): Observable<UserModel> {
+    return this.http.get<UserModel>(this.baseUrl + "GetUserByUsername/" + userName);
+  }
+
   createUser(user: UserModel): Observable<UserModel> {
     return this.http.post<UserModel>(this.baseUrl, user);
   }

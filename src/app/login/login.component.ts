@@ -1,21 +1,22 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {FormsModule} from "@angular/forms";
-import {UserModel} from "../models/user.model";
+import {UserLoginModel} from "../models/userlogin.model";
 import {UserService} from "../user.service";
 import {Guid} from "guid-typescript";
+import {UserModel} from "../models/user.model";
 
 @Component({
   selector: 'app-login',
   standalone: true,
-    imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
   providers: [UserService]
 })
 export class LoginComponent {
-
   data: UserModel[] = [];
+  user: UserLoginModel = new UserLoginModel();
 
   constructor(private service: UserService) {
   }
@@ -41,14 +42,24 @@ export class LoginComponent {
 
   handleLogin(formData: any) {
     this.login(formData.value);
-    formData.reset();
+    console.log(formData.value);
+    //formData.reset();
   }
 
   login(user: UserModel) {
-    this.service.getUserById(user.id).subscribe((data: UserModel) => {
-      console.log(data);
-      this.data.push(data);
+    this.service.getUserByUserName(user.userName).subscribe((data: UserModel) => {
+      this.user = data;
     });
+    console.log(user);
+    console.log(this.user);
+
+    if (this.user.userName == user.userName && this.user.password == user.password) {
+      alert("Login Successful");
+    }
+
+    else {
+      alert("Login Failed");
+    }
   }
 
 }
