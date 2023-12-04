@@ -1,13 +1,44 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from "@angular/forms";
+import { Guid } from "guid-typescript";
+import {RouterOutlet} from "@angular/router";
+import {CoffeeListComponent} from "../coffee-list/coffee-list.component";
+
+import {UserModel} from "../models/user.model";
+import {UserService} from "../user.service";
 
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule, CoffeeListComponent, RouterOutlet],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css'
 })
 export class SignupComponent {
+  data: any;
+  constructor(private service: UserService) {
+  }
+
+
+
+handleAddUser(formData: any) {
+  this.addUser(formData.value);
+}
+
+addUser(user: UserModel) {
+  let newUser = new UserModel();
+  newUser.id = Guid.create().toString();
+  newUser.userName = user.userName;
+  newUser.password  = user.password;
+  newUser.isAdmin = user.isAdmin;
+  newUser.firstName = user.firstName;
+  newUser.email = user.email;
+  newUser.phone = user.phone;
+    this.service.createUser(newUser).subscribe((data: UserModel) => {
+    console.log(data);
+    this.data.push(data);
+  });
+}
 
 }
