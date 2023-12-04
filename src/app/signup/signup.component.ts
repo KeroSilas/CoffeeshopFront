@@ -1,10 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from "@angular/forms";
 import { Guid } from "guid-typescript";
 import {RouterOutlet} from "@angular/router";
 import {CoffeeListComponent} from "../coffee-list/coffee-list.component";
-
 import {UserModel} from "../models/user.model";
 import {UserService} from "../user.service";
 
@@ -13,14 +12,13 @@ import {UserService} from "../user.service";
   standalone: true,
   imports: [CommonModule, FormsModule, CoffeeListComponent, RouterOutlet],
   templateUrl: './signup.component.html',
-  styleUrl: './signup.component.css'
+  styleUrl: './signup.component.css',
+  providers: [UserService]
 })
 export class SignupComponent {
   data: any;
   constructor(private service: UserService) {
   }
-
-
 
 handleAddUser(formData: any) {
   this.addUser(formData.value);
