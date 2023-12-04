@@ -30,6 +30,7 @@ export class AddCoffeeComponent implements OnInit{
 
   handleAddCoffee(formData: any) {
     this.addCoffee(formData.value);
+    formData.reset();
   }
 
   addCoffee(coffee: CoffeeModel) {
