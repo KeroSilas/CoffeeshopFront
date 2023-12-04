@@ -1,7 +1,7 @@
 export class AdditionModel {
-    id: string = "";
-    name: string = "";
-    price: number = 0;
-    amount: number = 0;
+    id = "";
+    name = "";
+    price = 0;
+    amount = 0;
 
 }
