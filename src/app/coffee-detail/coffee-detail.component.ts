@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {Router, RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {CoffeeService} from "../coffee.service";
-import {CoffeeModel} from "../add-coffee/coffee.model";
+import {CoffeeModel} from "../models/coffee.model";
 
 @Component({
   selector: 'app-coffee-detail',
