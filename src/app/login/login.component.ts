@@ -29,7 +29,7 @@ export class LoginComponent {
   addUser(user: UserModel) {
     let newUser = new UserModel();
     newUser.id = Guid.create().toString();
-    newUser.userName = user.userName
+    newUser.username = user.username
     newUser.password = user.password;
     newUser.email = user.email;
     newUser.firstName = user.firstName;
@@ -42,24 +42,21 @@ export class LoginComponent {
 
   handleLogin(formData: any) {
     this.login(formData.value);
-    console.log(formData.value);
     //formData.reset();
   }
 
-  login(user: UserModel) {
-    this.service.getUserByUserName(user.userName).subscribe((data: UserModel) => {
-      this.user = data;
+  login(user: UserLoginModel) {
+    this.service.getUserByUserName(user.username).subscribe((data: UserModel) => {
+      if (data.password == user.password) {
+        if (data.isAdmin) {
+          alert("Logged in as an admin.");
+        } else {
+          alert("Logged in as a user.");
+        }
+      } else {
+        alert("Incorrect password.");
+      }
     });
-    console.log(user);
-    console.log(this.user);
-
-    if (this.user.userName == user.userName && this.user.password == user.password) {
-      alert("Login Successful");
-    }
-
-    else {
-      alert("Login Failed");
-    }
   }
 
 }

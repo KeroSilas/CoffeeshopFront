@@ -1,6 +1,6 @@
 export class UserModel {
   id: string = "";
-  userName: string = "";
+  username: string = "";
   password: string = "";
   isAdmin: boolean = false;
   firstName: string = "";

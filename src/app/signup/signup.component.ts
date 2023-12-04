@@ -27,7 +27,7 @@ handleAddUser(formData: any) {
 addUser(user: UserModel) {
   let newUser = new UserModel();
   newUser.id = Guid.create().toString();
-  newUser.userName = user.userName;
+  newUser.username = user.username;
   newUser.password  = user.password;
   newUser.isAdmin = user.isAdmin;
   newUser.firstName = user.firstName;
