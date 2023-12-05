@@ -1,11 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CoffeeService } from "../../services/coffee.service";
-import { CoffeeModel } from "../../models/coffee.model";
-import { FormsModule } from "@angular/forms";
-import { Guid } from "guid-typescript";
-import {CoffeeListComponent} from "../coffee-list/coffee-list.component";
-import {RouterOutlet} from "@angular/router";
+import { CoffeeService } from '../../services/coffee.service';
+import { CoffeeModel } from '../../models/coffee.model';
+import { FormsModule } from '@angular/forms';
+import { Guid } from 'guid-typescript';
+import { CoffeeListComponent } from '../coffee-list/coffee-list.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-add-coffee',
@@ -13,14 +13,12 @@ import {RouterOutlet} from "@angular/router";
   imports: [CommonModule, FormsModule, CoffeeListComponent, RouterOutlet],
   templateUrl: './add-coffee.component.html',
   styleUrl: './add-coffee.component.css',
-  providers: [CoffeeService]
+  providers: [CoffeeService],
 })
-
-export class AddCoffeeComponent implements OnInit{
+export class AddCoffeeComponent implements OnInit {
   data: CoffeeModel[] = [];
 
-  constructor(private service: CoffeeService) {
-  }
+  constructor(private service: CoffeeService) {}
 
   ngOnInit(): void {
     this.service.getCoffees().subscribe((data: CoffeeModel[]) => {
@@ -46,9 +44,13 @@ export class AddCoffeeComponent implements OnInit{
   }
 
   deleteCoffee(coffeeToDelete: CoffeeModel) {
-    this.service.deleteCoffee(coffeeToDelete.id).subscribe((data: CoffeeModel) => {
-      console.log(data);
-      this.data = this.data.filter((coffee: CoffeeModel) => coffee.id !== coffeeToDelete.id);
-    });
+    this.service
+      .deleteCoffee(coffeeToDelete.id)
+      .subscribe((data: CoffeeModel) => {
+        console.log(data);
+        this.data = this.data.filter(
+          (coffee: CoffeeModel) => coffee.id !== coffeeToDelete.id,
+        );
+      });
   }
 }

@@ -1,9 +1,9 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from "@angular/forms";
-import { Guid } from "guid-typescript";
-import {UserModel} from "../../models/user.model";
-import {UserService} from "../../services/user.service";
+import { FormsModule } from '@angular/forms';
+import { Guid } from 'guid-typescript';
+import { UserModel } from '../../models/user.model';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-signup',
@@ -11,13 +11,12 @@ import {UserService} from "../../services/user.service";
   imports: [CommonModule, FormsModule],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css',
-  providers: [UserService]
+  providers: [UserService],
 })
 export class SignupComponent {
   data: UserModel[] = [];
 
-  constructor(private service: UserService) {
-  }
+  constructor(private service: UserService) {}
 
   handleAddUser(formData: any) {
     this.addUser(formData.value);
@@ -28,7 +27,7 @@ export class SignupComponent {
     let newUser = new UserModel();
     newUser.id = Guid.create().toString();
     newUser.username = user.username;
-    newUser.password  = user.password;
+    newUser.password = user.password;
     newUser.isAdmin = false;
     newUser.firstName = user.firstName;
     newUser.email = user.email;
@@ -39,5 +38,4 @@ export class SignupComponent {
       this.data.push(data);
     });
   }
-
 }
