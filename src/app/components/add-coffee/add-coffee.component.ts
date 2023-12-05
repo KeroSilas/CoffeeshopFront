@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CoffeeService } from '../../services/coffee.service';
-import { CoffeeModel } from '../../models/coffee.model';
+import { PredefinedCoffeeModel } from '../../models/predefinedCoffee.model';
 import { FormsModule } from '@angular/forms';
 import { Guid } from 'guid-typescript';
 import { CoffeeListComponent } from '../coffee-list/coffee-list.component';
@@ -16,12 +16,12 @@ import { RouterOutlet } from '@angular/router';
   providers: [CoffeeService],
 })
 export class AddCoffeeComponent implements OnInit {
-  data: CoffeeModel[] = [];
+  data: PredefinedCoffeeModel[] = [];
 
   constructor(private service: CoffeeService) {}
 
   ngOnInit(): void {
-    this.service.getCoffees().subscribe((data: CoffeeModel[]) => {
+    this.service.getCoffees().subscribe((data: PredefinedCoffeeModel[]) => {
       this.data = data;
     });
   }
@@ -31,25 +31,26 @@ export class AddCoffeeComponent implements OnInit {
     formData.reset();
   }
 
-  addCoffee(coffee: CoffeeModel) {
-    let newCoffee = new CoffeeModel();
+  addCoffee(coffee: PredefinedCoffeeModel) {
+    let newCoffee = new PredefinedCoffeeModel();
     newCoffee.id = Guid.create().toString();
     newCoffee.name = coffee.name;
     newCoffee.price = coffee.price;
     newCoffee.description = coffee.description;
-    this.service.createCoffee(newCoffee).subscribe((data: CoffeeModel) => {
+    newCoffee.image = coffee.image;
+    this.service.createCoffee(newCoffee).subscribe((data: PredefinedCoffeeModel) => {
       console.log(data);
       this.data.push(data);
     });
   }
 
-  deleteCoffee(coffeeToDelete: CoffeeModel) {
+  deleteCoffee(coffeeToDelete: PredefinedCoffeeModel) {
     this.service
       .deleteCoffee(coffeeToDelete.id)
-      .subscribe((data: CoffeeModel) => {
+      .subscribe((data: PredefinedCoffeeModel) => {
         console.log(data);
         this.data = this.data.filter(
-          (coffee: CoffeeModel) => coffee.id !== coffeeToDelete.id,
+          (coffee: PredefinedCoffeeModel) => coffee.id !== coffeeToDelete.id,
         );
       });
   }

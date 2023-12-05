@@ -7,7 +7,7 @@ import {
   RouterOutlet,
 } from '@angular/router';
 import { CoffeeService } from '../../services/coffee.service';
-import { CoffeeModel } from '../../models/coffee.model';
+import { PredefinedCoffeeModel } from '../../models/predefinedCoffee.model';
 
 @Component({
   selector: 'app-coffee-detail',
@@ -18,7 +18,7 @@ import { CoffeeModel } from '../../models/coffee.model';
   providers: [CoffeeService],
 })
 export class CoffeeDetailComponent implements OnInit {
-  coffee: CoffeeModel = new CoffeeModel();
+  coffee: PredefinedCoffeeModel = new PredefinedCoffeeModel();
 
   constructor(
     private router: Router,
@@ -31,7 +31,7 @@ export class CoffeeDetailComponent implements OnInit {
 
   getCoffee() {
     let coffeeId = this.router.url.split('/')[2];
-    this.service.getCoffeeById(coffeeId).subscribe((data: CoffeeModel) => {
+    this.service.getCoffeeById(coffeeId).subscribe((data: PredefinedCoffeeModel) => {
       this.coffee = data;
     });
   }

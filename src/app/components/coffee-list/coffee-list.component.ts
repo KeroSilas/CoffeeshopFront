@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CoffeeModel } from '../../models/coffee.model';
+import { PredefinedCoffeeModel } from '../../models/predefinedCoffee.model';
 import {
   Router,
   RouterLink,
@@ -23,16 +23,16 @@ import { CoffeeDetailComponent } from '../coffee-detail/coffee-detail.component'
   styleUrl: './coffee-list.component.css',
 })
 export class CoffeeListComponent {
-  @Output() coffeeToDelete: EventEmitter<CoffeeModel> =
-    new EventEmitter<CoffeeModel>();
-  @Input() coffeeList: CoffeeModel[] = [];
+  @Output() coffeeToDelete: EventEmitter<PredefinedCoffeeModel> =
+    new EventEmitter<PredefinedCoffeeModel>();
+  @Input() coffeeList: PredefinedCoffeeModel[] = [];
 
   constructor(private router: Router) {}
-  handleDeleteCoffee(coffee: CoffeeModel) {
+  handleDeleteCoffee(coffee: PredefinedCoffeeModel) {
     this.coffeeToDelete.emit(coffee);
   }
 
-  onSelect(coffee: CoffeeModel) {
+  onSelect(coffee: PredefinedCoffeeModel) {
     this.router.navigate(['coffee/', coffee.id]).then((r) => console.log(r));
   }
 }
