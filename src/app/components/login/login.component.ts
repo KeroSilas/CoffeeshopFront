@@ -4,11 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { UserLoginModel } from '../../models/userlogin.model';
 import { UserService } from '../../services/user.service';
 import { UserModel } from '../../models/user.model';
+import { UserStateService } from '../../services/user-state.service';
+import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
   providers: [UserService],
@@ -16,7 +19,11 @@ import { UserModel } from '../../models/user.model';
 export class LoginComponent {
   data: UserModel[] = [];
 
-  constructor(private service: UserService) {}
+  constructor(
+    private service: UserService,
+    private userState: UserStateService,
+    private router: Router,
+  ) {}
 
   handleLogin(formData: any) {
     this.login(formData.value);
@@ -27,11 +34,8 @@ export class LoginComponent {
     this.service.getUserByUserName(user.username).subscribe(
       (data: UserModel) => {
         if (data.password == user.password) {
-          if (data.isAdmin) {
-            alert('Logged in as an admin.');
-          } else {
-            alert('Logged in as a user.');
-          }
+          this.userState.login(data);
+          this.router.navigate(['/']).then((r) => console.log(r));
         } else {
           alert('Incorrect password.');
         }
