@@ -6,6 +6,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
 import { RouterLink } from '@angular/router';
+import { UserStateService } from '../../services/user-state.service';
 
 @Component({
   selector: 'app-header',
@@ -22,4 +23,18 @@ import { RouterLink } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  constructor(private userState: UserStateService) {}
+
+  isLoggedIn(): boolean {
+    return this.userState.isLoggedIn();
+  }
+
+  isAdmin(): boolean {
+    return this.userState.isAdmin();
+  }
+
+  logout() {
+    this.userState.logout();
+  }
+}

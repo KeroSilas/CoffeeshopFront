@@ -4,11 +4,26 @@
 >
   <a routerLink="" class="text-2xl text-gray-900">Kaffekunstens Forening</a>
   <div class="space-x-12">
-    <button mat-icon-button [matMenuTriggerFor]="menu">
-      <mat-icon [matBadge]="1" matBadgeColor="warn">shopping_cart</mat-icon>
-    </button>
-    <a routerLink="signup" class="text-gray-900 align-text-bottom">Sign up</a>
-    <a routerLink="login" class="text-gray-900 align-text-bottom">Log in</a>
+    <ng-container *ngIf="isLoggedIn(); then loggedIn; else loggedOut">
+    </ng-container>
+    <ng-template #loggedIn>
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon [matBadge]="1" matBadgeColor="warn">shopping_cart</mat-icon>
+      </button>
+      <a routerLink="profile" class="text-gray-900 align-text-bottom"
+        >Profile</a
+      >
+      <a
+        routerLink=""
+        class="text-gray-900 align-text-bottom"
+        (click)="logout()"
+        >Log out</a
+      >
+    </ng-template>
+    <ng-template #loggedOut>
+      <a routerLink="signup" class="text-gray-900 align-text-bottom">Sign up</a>
+      <a routerLink="login" class="text-gray-900 align-text-bottom">Log in</a>
+    </ng-template>
   </div>
   <mat-menu #menu="matMenu">
     <div class="p-3 divide-y divide-solid">
