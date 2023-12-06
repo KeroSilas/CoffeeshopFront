@@ -9,10 +9,25 @@
   </div>
   <div
     *ngFor="let coffee of data"
-    class="h-80 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 cursor-pointer flex justify-between flex-col p-3"
-    routerLink="/coffee/{{ coffee.id }}"
+    class="h-80 text-gray-900 text-sm rounded-lg flex justify-between flex-col p-3 gap-4"
   >
-    <p>{{ coffee.name }}</p>
-    <p>{{ coffee.price | currency }}</p>
+    <img
+      routerLink="/coffee/{{ coffee.id }}"
+      src="../../../assets/images/{{ coffee.image }}"
+      alt="{{ coffee.image }}"
+      class="grow object-cover rounded-lg cursor-pointer"
+    />
+    <div class="flex justify-between">
+      <div
+        routerLink="/coffee/{{ coffee.id }}"
+        class="flex flex-col cursor-pointer"
+      >
+        <p class="font-bold">{{ coffee.name }}</p>
+        <p>{{ coffee.price | currency: "DKK" }}</p>
+      </div>
+      <button class="h-fit px-2.5 pt-2.5 pb-1 bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-lg sm:w-auto text-center">
+        <mat-icon>add_shopping_cart</mat-icon>
+      </button>
+    </div>
   </div>
 </div>

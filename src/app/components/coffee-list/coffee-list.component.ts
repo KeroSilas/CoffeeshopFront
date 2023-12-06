@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
 import { PredefinedCoffeeModel } from '../../models/predefinedCoffee.model';
 import {
   Router,
@@ -10,6 +10,7 @@ import {
 import { CoffeeDetailComponent } from '../coffee-detail/coffee-detail.component';
 import {UserStateService} from "../../services/user-state.service";
 import {CoffeeService} from "../../services/coffee.service";
+import {MatIconModule} from "@angular/material/icon";
 
 @Component({
   selector: 'app-coffee-list',
@@ -20,6 +21,8 @@ import {CoffeeService} from "../../services/coffee.service";
     RouterLink,
     RouterLinkActive,
     CoffeeDetailComponent,
+    NgOptimizedImage,
+    MatIconModule,
   ],
   templateUrl: './coffee-list.component.html',
   styleUrl: './coffee-list.component.css',
@@ -28,14 +31,20 @@ import {CoffeeService} from "../../services/coffee.service";
 export class CoffeeListComponent implements OnInit {
   data: PredefinedCoffeeModel[] = [];
 
-  constructor(private router: Router, private coffeeService: CoffeeService, private userState: UserStateService) {}
+  constructor(
+    private router: Router,
+    private coffeeService: CoffeeService,
+    private userState: UserStateService,
+  ) {}
 
   ngOnInit(): void {
     if (!this.userState.isLoggedIn()) {
       this.router.navigate(['login']).then((r) => console.log(r));
     }
-    this.coffeeService.getCoffees().subscribe((data: PredefinedCoffeeModel[]) => {
-      this.data = data;
-    });
+    this.coffeeService
+      .getCoffees()
+      .subscribe((data: PredefinedCoffeeModel[]) => {
+        this.data = data;
+      });
   }
 }
