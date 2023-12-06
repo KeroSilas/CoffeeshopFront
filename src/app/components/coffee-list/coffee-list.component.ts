@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PredefinedCoffeeModel } from '../../models/predefinedCoffee.model';
 import {
@@ -8,6 +8,8 @@ import {
   RouterOutlet,
 } from '@angular/router';
 import { CoffeeDetailComponent } from '../coffee-detail/coffee-detail.component';
+import {UserStateService} from "../../services/user-state.service";
+import {CoffeeService} from "../../services/coffee.service";
 
 @Component({
   selector: 'app-coffee-list',
@@ -21,18 +23,19 @@ import { CoffeeDetailComponent } from '../coffee-detail/coffee-detail.component'
   ],
   templateUrl: './coffee-list.component.html',
   styleUrl: './coffee-list.component.css',
+  providers: [CoffeeService],
 })
-export class CoffeeListComponent {
-  @Output() coffeeToDelete: EventEmitter<PredefinedCoffeeModel> =
-    new EventEmitter<PredefinedCoffeeModel>();
-  @Input() coffeeList: PredefinedCoffeeModel[] = [];
+export class CoffeeListComponent implements OnInit {
+  data: PredefinedCoffeeModel[] = [];
 
-  constructor(private router: Router) {}
-  handleDeleteCoffee(coffee: PredefinedCoffeeModel) {
-    this.coffeeToDelete.emit(coffee);
-  }
+  constructor(private router: Router, private coffeeService: CoffeeService, private userState: UserStateService) {}
 
-  onSelect(coffee: PredefinedCoffeeModel) {
-    this.router.navigate(['coffee/', coffee.id]).then((r) => console.log(r));
+  ngOnInit(): void {
+    if (!this.userState.isLoggedIn()) {
+      this.router.navigate(['login']).then((r) => console.log(r));
+    }
+    this.coffeeService.getCoffees().subscribe((data: PredefinedCoffeeModel[]) => {
+      this.data = data;
+    });
   }
 }

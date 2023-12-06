@@ -3,29 +3,27 @@
   style="background-color: transparent"
 >
   <a routerLink="" class="text-2xl text-gray-900">Kaffekunstens Forening</a>
-  <div class="space-x-12">
+  <div>
     <ng-container *ngIf="isLoggedIn(); then loggedIn; else loggedOut">
     </ng-container>
-    <ng-template #loggedIn>
-      <button mat-icon-button [matMenuTriggerFor]="menu">
-        <mat-icon [matBadge]="1" matBadgeColor="warn">shopping_cart</mat-icon>
-      </button>
-      <a routerLink="profile" class="text-gray-900 align-text-bottom"
-        >Profile</a
-      >
-      <a
-        routerLink=""
-        class="text-gray-900 align-text-bottom"
-        (click)="logout()"
-        >Log out</a
-      >
+    <ng-template #loggedIn class="space-x-4">
+      <div class="space-x-5">
+        <button mat-icon-button [matMenuTriggerFor]="cart">
+          <mat-icon [matBadge]="1" matBadgeColor="warn">shopping_cart</mat-icon>
+        </button>
+        <button mat-icon-button [matMenuTriggerFor]="account">
+          <mat-icon>account_circle</mat-icon>
+        </button>
+      </div>
     </ng-template>
     <ng-template #loggedOut>
-      <a routerLink="signup" class="text-gray-900 align-text-bottom">Sign up</a>
-      <a routerLink="login" class="text-gray-900 align-text-bottom">Log in</a>
+      <div class="space-x-10">
+        <a routerLink="signup" class="text-gray-900 align-text-bottom">Sign up</a>
+        <a routerLink="login" class="text-gray-900 align-text-bottom">Log in</a>
+      </div>
     </ng-template>
   </div>
-  <mat-menu #menu="matMenu">
+  <mat-menu #cart="matMenu">
     <div class="p-3 divide-y divide-solid">
       <div class="pb-3 flex justify-between">
         <span class="mr-16">1 items</span>
@@ -34,6 +32,16 @@
       <div class="flex justify-between font-light mb-2">
         Keyboard x 1
         <span class="font-bold">{{ "150" | currency }}</span>
+      </div>
+    </div>
+  </mat-menu>
+  <mat-menu #account="matMenu">
+    <div class="p-2 ml-2 grid-cols-1 space-y-3">
+      <div>
+        <a routerLink="profile">Profile</a>
+      </div>
+      <div>
+        <a routerLink="login" (click)="logout()">Log out</a>
       </div>
     </div>
   </mat-menu>
