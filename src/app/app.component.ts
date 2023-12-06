@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, signal} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
@@ -18,6 +18,7 @@ import { AddCoffeeComponent } from './components/add-coffee/add-coffee.component
 import { CoffeeListComponent } from './components/coffee-list/coffee-list.component';
 import { CoffeeDetailComponent } from './components/coffee-detail/coffee-detail.component';
 import { HeaderComponent } from './components/header/header.component';
+import {TestComponent} from "./components/test/test.component";
 
 @Component({
   selector: 'app-root',
@@ -44,6 +45,7 @@ import { HeaderComponent } from './components/header/header.component';
     CoffeeListComponent,
     CoffeeDetailComponent,
     HeaderComponent,
+    TestComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

@@ -1,0 +1,24 @@
+<p>Create test order (not working right now)</p>
+<form #formData="ngForm" (ngSubmit)="handleAddOrder(formData)" class="flex flex-col w-72 border bg-gray-200">
+  <select ngModel name="bean">
+    <option *ngFor="let bean of beans" value="{{ bean }}">{{ bean.name }}</option>
+  </select>
+  <select ngModel name="brewingMethod">
+    <option *ngFor="let brewingMethod of brewingMethods" value="{{ brewingMethod }}">{{ brewingMethod.name }}</option>
+  </select>
+  <select ngModel name="addition">
+    <option *ngFor="let addition of additions" value="{{ addition }}">{{ addition.name }}</option>
+  </select>
+  <select ngModel name="cookie">
+    <option *ngFor="let cookie of cookies" value="{{ cookie }}">{{ cookie.name }}</option>
+  </select>
+  <select ngModel name="pickupLocation">
+    <option *ngFor="let pickupLocation of pickupLocations" value="{{ pickupLocation }}">{{ pickupLocation.shopName }}</option>
+  </select>
+  <br>
+  <br>
+  <select ngModel name="coffee">
+    <option *ngFor="let coffee of predefinedCoffees" value="{{ coffee }}">{{ coffee.name }}</option>
+  </select>
+  <button type="submit">Submit</button>
+</form>
