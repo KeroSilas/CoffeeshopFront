@@ -9,13 +9,13 @@
   </div>
   <div
     *ngFor="let coffee of data"
-    class="h-80 text-gray-900 text-sm rounded-lg flex justify-between flex-col p-3 gap-4"
+    class="text-gray-900 text-sm rounded-lg flex justify-between flex-col p-3 gap-4"
   >
     <img
       routerLink="/coffee/{{ coffee.id }}"
       src="../../../assets/images/{{ coffee.image }}"
       alt="{{ coffee.image }}"
-      class="grow object-cover rounded-lg cursor-pointer"
+      class="grow object-cover rounded-lg cursor-pointer max-h-60 min-h-60"
     />
     <div class="flex justify-between">
       <div
