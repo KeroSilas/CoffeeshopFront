@@ -1,4 +1,6 @@
-<div class="grid grid-cols-2 gap-4 px-4 md:grid-cols-3 lg:grid-cols-4">
+<div
+  class="grid grid-cols-2 gap-y-2 gap-x-5 px-4 md:grid-cols-3 lg:grid-cols-4"
+>
   <div
     class="h-80 bg-green-50 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 cursor-pointer flex justify-between flex-col p-3"
     routerLink="/coffee/create"
@@ -9,24 +11,30 @@
   </div>
   <div
     *ngFor="let coffee of data"
-    class="text-gray-900 text-sm rounded-lg flex justify-between flex-col p-3 gap-4"
+    class="rounded-lg flex flex-col justify-between gap-0.5"
   >
     <img
       routerLink="/coffee/{{ coffee.id }}"
       src="../../../assets/images/{{ coffee.image }}"
       alt="{{ coffee.image }}"
-      class="grow object-cover rounded-lg cursor-pointer max-h-60 min-h-60"
+      class="grow object-cover rounded-lg cursor-pointer max-h-64 min-h-64 h-64"
     />
     <div class="flex justify-between">
       <div
         routerLink="/coffee/{{ coffee.id }}"
-        class="flex flex-col cursor-pointer"
+        class="flex flex-col cursor-pointer px-0.5"
       >
-        <p class="font-bold">{{ coffee.name }}</p>
-        <p>{{ coffee.price | currency: "DKK" }}</p>
+        <p class="text-gray-900 font-bold text-base translate-y-1.5">
+          {{ coffee.name }}
+        </p>
+        <p class="text-gray-900 -translate-y-1">
+          {{ coffee.price | currency: "DKK" }}
+        </p>
       </div>
-      <button class="h-fit px-2.5 pt-2.5 pb-1 bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-lg sm:w-auto text-center">
-        <mat-icon>add_shopping_cart</mat-icon>
+      <button
+        class="translate-y-1.5 h-fit px-2.5 pt-2.5 pb-1 bg-emerald-100 hover:bg-emerald-200 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-lg sm:w-auto text-center"
+      >
+        <mat-icon style="color: #212121">add_shopping_cart</mat-icon>
       </button>
     </div>
   </div>
