@@ -32,20 +32,7 @@ export class LoginComponent {
   }
 
   login(user: UserLoginModel) {
-    /*this.service.getUserByUserName(user.username).subscribe(
-      (data: UserModel) => {
-        if (data.password == user.password) {
-          this.userState.login(data);
-          this.router.navigate(['/']).then((r) => console.log(r));
-        } else {
-          alert('Incorrect password.');
-        }
-      },
-      () => {
-        alert('Incorrect username.');
-      }
-    );*/
-    this.service.login(user).subscribe(
+      this.service.login(user).subscribe(
       (data: UserModel) => {
         this.userState.login(data);
         this.router.navigate(['/']).then((r) => console.log(r));
