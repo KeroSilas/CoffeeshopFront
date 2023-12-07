@@ -4,7 +4,7 @@
 >
   <a routerLink="" class="text-2xl text-gray-900">Kaffekunstens Forening</a>
   <div>
-    <ng-container *ngIf="isLoggedIn(); then loggedIn; else loggedOut">
+    <ng-container *ngIf="isLoggedIn(); then loggedIn;">
     </ng-container>
     <ng-template #loggedIn class="space-x-4">
       <div class="space-x-5">
@@ -16,12 +16,14 @@
         </button>
       </div>
     </ng-template>
+    <!--
     <ng-template #loggedOut>
       <div class="space-x-10">
         <a routerLink="signup" class="text-gray-900 align-text-bottom">Sign up</a>
         <a routerLink="login" class="text-gray-900 align-text-bottom">Log in</a>
       </div>
     </ng-template>
+    -->
   </div>
   <mat-menu #cart="matMenu">
     <div class="p-3 divide-y divide-solid">
@@ -39,6 +41,9 @@
     <div class="p-2 ml-2 grid-cols-1 space-y-3">
       <div>
         <a routerLink="profile">Profile</a>
+      </div>
+      <div *ngIf="isAdmin();">
+        <a routerLink="administration/dashboard">Administration</a>
       </div>
       <div>
         <a routerLink="login" (click)="logout()">Log out</a>
