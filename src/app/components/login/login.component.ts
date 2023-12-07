@@ -18,6 +18,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   data: UserModel[] = [];
+  user: UserLoginModel[] = [];
 
   constructor(
     private service: UserService,
@@ -31,7 +32,7 @@ export class LoginComponent {
   }
 
   login(user: UserLoginModel) {
-    this.service.getUserByUserName(user.username).subscribe(
+    /*this.service.getUserByUserName(user.username).subscribe(
       (data: UserModel) => {
         if (data.password == user.password) {
           this.userState.login(data);
@@ -42,7 +43,16 @@ export class LoginComponent {
       },
       () => {
         alert('Incorrect username.');
+      }
+    );*/
+    this.service.login(user).subscribe(
+      (data: UserModel) => {
+        this.userState.login(data);
+        this.router.navigate(['/']).then((r) => console.log(r));
       },
+      () => {
+        alert('Incorrect username or password.');
+      }
     );
   }
 }
