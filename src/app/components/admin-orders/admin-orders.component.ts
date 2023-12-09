@@ -4,7 +4,7 @@ import {Router, RouterLink} from "@angular/router";
 import {UserStateService} from "../../services/user-state.service";
 import {OrderService} from "../../services/order.service";
 import {OrderModel} from "../../models/order.model";
-import {OrderPickedupDTOModel} from "../../models/orderPickedupDTO.model";
+import {OrderPickedupDTOModel} from "../../models/DTOs/orderPickedupDTO.model";
 
 @Component({
   selector: 'app-admin-orders',

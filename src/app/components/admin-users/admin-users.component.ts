@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {UserService} from "../../services/user.service";
 import {UserModel} from "../../models/user.model";
-import {UserAdminDTOModel} from "../../models/userAdminDTO.model";
+import {UserAdminDTOModel} from "../../models/DTOs/userAdminDTO.model";
 import {Router, RouterLink} from "@angular/router";
 import {UserStateService} from "../../services/user-state.service";
 

@@ -22,4 +22,16 @@ export class UserStateService {
   isAdmin(): boolean {
     return this.currentUser.isAdmin;
   }
+
+  getUsername(): string {
+    return this.currentUser.username;
+  }
+
+  getUserId(): string {
+    return this.currentUser.id;
+  }
+
+  getUser(): UserModel {
+    return this.currentUser;
+  }
 }

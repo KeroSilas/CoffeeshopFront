@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { PredefinedCoffeeModel } from '../models/predefinedCoffee.model';
+import {CommentModel} from "../models/comment.model";
 
 @Injectable({
   providedIn: 'root',
@@ -38,4 +39,5 @@ export class CoffeeService {
       this.baseUrl + 'PredefinedCoffee/' + id,
     );
   }
+
 }

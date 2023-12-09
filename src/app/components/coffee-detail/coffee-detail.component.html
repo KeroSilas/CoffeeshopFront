@@ -1,3 +1,49 @@
-<body>
-  <p>{{ coffee.name }}</p>
+<body class="space-y-6 mx-auto w-fit">
+<div class="rounded-lg flex flex-row gap-4">
+  <img
+    src="../../../assets/images/{{ coffee.image }}"
+    alt="{{ coffee.image }}"
+    class="object-cover rounded-lg max-h-96 min-h-96 h-96 w-96 max-w-96 min-w-96"
+  />
+  <div class="flex flex-col justify-between w-96 max-w-96 min-w-96">
+    <div
+      class="flex flex-col px-0.5"
+    >
+      <p class="text-gray-900 font-bold text-base">
+        {{ coffee.name }}
+      </p>
+      <p class="text-gray-900 -translate-y-2.5">
+        {{ coffee.price | currency: "DKK" }}
+      </p>
+      <p class="text-gray-900">
+        {{ coffee.description }}
+      </p>
+    </div>
+    <div class="flex gap-2">
+      <button
+        class="px-2.5 pt-2.5 pb-1 bg-red-100 hover:bg-red-200 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-lg sm:w-auto text-center"
+      >
+        <mat-icon style="color: #212121">favorite_outline</mat-icon>
+      </button>
+      <button
+        class="grow px-2.5 pt-2.5 pb-1 bg-emerald-100 hover:bg-emerald-200 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-lg sm:w-auto text-center"
+      >
+        <mat-icon style="color: #212121">add_shopping_cart</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="flex flex-row gap-2">
+  <textarea #comment rows="2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"></textarea>
+  <button (click)="addComment(comment.value)"
+    class="px-2.5 pt-2.5 pb-1 bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-lg sm:w-auto text-center"
+  >
+    <mat-icon style="color: #212121">add_comment</mat-icon>
+  </button>
+</div>
+<div *ngFor="let comment of comments">
+  <p>
+    {{ comment.content }}
+  </p>
+</div>
 </body>
