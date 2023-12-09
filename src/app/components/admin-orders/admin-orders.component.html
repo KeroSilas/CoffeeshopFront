@@ -1,0 +1,41 @@
+<body class="space-y-4">
+<button [routerLink]="['/admin']" class="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
+  Tilbage
+</button>
+<div class="relative overflow-x-auto">
+  <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+    <tr>
+      <th scope="col" class="px-6 py-3">ID</th>
+      <th scope="col" class="px-6 py-3">Bruger ID</th>
+      <th scope="col" class="px-6 py-3">Location ID</th>
+      <th scope="col" class="px-6 py-3">Pris</th>
+      <th scope="col" class="px-6 py-3">Købstidspunkt</th>
+      <th scope="col" class="px-6 py-3">Gennemført</th>
+      <th scope="col" class="px-6 py-3">Hentet</th>
+      <th scope="col" class="px-6 py-3"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let order of data" class="bg-white border-b">
+      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+        {{ order.id }}
+      </th>
+      <td class="px-6 py-4">{{ order.userId }}</td>
+      <td class="px-6 py-4">{{ order.locationId }}</td>
+      <td class="px-6 py-4">{{ order.totalPrice }}</td>
+      <td class="px-6 py-4">{{ order.orderTime }}</td>
+      <td class="px-6 py-4">{{ order.isCompleted }}</td>
+      <td class="px-6 py-4">
+        <input type="checkbox" [checked]="order.isPickedUp" (change)="updateOrder(order)" class="w-4 h-4 align-middle">
+      </td>
+      <td>
+        <button (click)="deleteOrder(order)" class="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
+          Slet
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>

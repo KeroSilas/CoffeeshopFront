@@ -19,8 +19,8 @@
     <!--
     <ng-template #loggedOut>
       <div class="space-x-10">
-        <a routerLink="signup" class="text-gray-900 align-text-bottom">Sign up</a>
-        <a routerLink="login" class="text-gray-900 align-text-bottom">Log in</a>
+        <a routerLink="signup" class="text-gray-900 align-text-bottom">Registrer</a>
+        <a routerLink="login" class="text-gray-900 align-text-bottom">Log ind</a>
       </div>
     </ng-template>
     -->
@@ -29,7 +29,7 @@
     <div class="p-3 divide-y divide-solid">
       <div class="pb-3 flex justify-between">
         <span class="mr-16">1 items</span>
-        <a routerLink="cart">View Cart</a>
+        <a routerLink="cart">Se indkøbskurv</a>
       </div>
       <div class="flex justify-between font-light mb-2">
         Keyboard x 1
@@ -40,13 +40,13 @@
   <mat-menu #account="matMenu">
     <div class="p-2 ml-2 grid-cols-1 space-y-3">
       <div>
-        <a routerLink="profile">Profile</a>
+        <a routerLink="profile">Profil</a>
       </div>
       <div *ngIf="isAdmin();">
-        <a routerLink="administration/dashboard">Administration</a>
+        <a routerLink="admin">Administrer</a>
       </div>
       <div>
-        <a routerLink="login" (click)="logout()">Log out</a>
+        <a routerLink="login" (click)="logout()">Log ud</a>
       </div>
     </div>
   </mat-menu>

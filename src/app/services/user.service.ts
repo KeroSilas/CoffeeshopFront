@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UserModel } from '../models/user.model';
 import {UserLoginModel} from "../models/userlogin.model";
+import {UserAdminDTOModel} from "../models/userAdminDTO.model";
 
 @Injectable({
   providedIn: 'root',
@@ -30,8 +31,8 @@ export class UserService {
     return this.http.post<UserModel>(this.baseUrl, user);
   }
 
-  updateUser(id: string, user: UserModel): Observable<UserModel> {
-    return this.http.put<UserModel>(this.baseUrl + id, user);
+  updateUser(id: string, user: UserAdminDTOModel): Observable<any> {
+    return this.http.put(this.baseUrl + id, user);
   }
 
   deleteUser(id: string): Observable<UserModel> {

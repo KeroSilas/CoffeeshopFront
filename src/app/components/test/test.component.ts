@@ -11,7 +11,7 @@ import {CookieModel} from "../../models/cookie.model";
 import {PickupLocationModel} from "../../models/pickupLocation.model";
 import {Guid} from "guid-typescript";
 import {UserStateService} from "../../services/user-state.service";
-import {OrderDetailsModel} from "../../models/orderDetailsModel";
+import {OrderDetailsModel} from "../../models/orderDetails.model";
 import {CustomCoffeeModel} from "../../models/customCoffee.model";
 import {CoffeeService} from "../../services/coffee.service";
 import {PredefinedCoffeeModel} from "../../models/predefinedCoffee.model";

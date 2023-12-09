@@ -1,4 +1,4 @@
-import {Component, signal} from '@angular/core';
+import {Component} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
@@ -19,6 +19,11 @@ import { CoffeeListComponent } from './components/coffee-list/coffee-list.compon
 import { CoffeeDetailComponent } from './components/coffee-detail/coffee-detail.component';
 import { HeaderComponent } from './components/header/header.component';
 import {TestComponent} from "./components/test/test.component";
+import {AdminNavComponent} from "./components/admin-nav/admin-nav.component";
+import {AdminUsersComponent} from "./components/admin-users/admin-users.component";
+import {AdminCoffeesComponent} from "./components/admin-coffees/admin-coffees.component";
+import {AdminDashboardComponent} from "./components/admin-dashboard/admin-dashboard.component";
+import {AdminOrdersComponent} from "./components/admin-orders/admin-orders.component";
 
 @Component({
   selector: 'app-root',
@@ -44,6 +49,11 @@ import {TestComponent} from "./components/test/test.component";
     AddCoffeeComponent,
     CoffeeListComponent,
     CoffeeDetailComponent,
+    AdminUsersComponent,
+    AdminCoffeesComponent,
+    AdminDashboardComponent,
+    AdminOrdersComponent,
+    AdminNavComponent,
     HeaderComponent,
     TestComponent,
   ],

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { OrderModel } from '../models/order.model';
+import {OrderPickedupDTOModel} from "../models/orderPickedupDTO.model";
 
 @Injectable({
   providedIn: 'root',
@@ -23,8 +24,8 @@ export class OrderService {
     return this.http.post<OrderModel>(this.baseUrl, user);
   }
 
-  updateOrder(id: string, user: OrderModel): Observable<OrderModel> {
-    return this.http.put<OrderModel>(this.baseUrl + id, user);
+  updateOrder(id: string, order: OrderPickedupDTOModel): Observable<any> {
+    return this.http.put(this.baseUrl + id, order);
   }
 
   deleteOrder(id: string): Observable<OrderModel> {

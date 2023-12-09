@@ -1,4 +1,4 @@
-import {OrderDetailsModel} from "./orderDetailsModel";
+import {OrderDetailsModel} from "./orderDetails.model";
 
 export class OrderModel {
     id = "";
