@@ -24,7 +24,6 @@ import {AdminUsersComponent} from "./components/admin-users/admin-users.componen
 import {AdminCoffeesComponent} from "./components/admin-coffees/admin-coffees.component";
 import {AdminDashboardComponent} from "./components/admin-dashboard/admin-dashboard.component";
 import {AdminOrdersComponent} from "./components/admin-orders/admin-orders.component";
-import { ShoppingCartComponent } from "./components/shopping-cart/shopping-cart.component";
 
 @Component({
   selector: 'app-root',
@@ -57,7 +56,6 @@ import { ShoppingCartComponent } from "./components/shopping-cart/shopping-cart.
     AdminNavComponent,
     HeaderComponent,
     TestComponent,
-    ShoppingCartComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

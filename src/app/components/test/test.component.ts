@@ -8,6 +8,8 @@ import {UserStateService} from "../../services/user-state.service";
 import {OrderDetailsModel} from "../../models/orderDetails.model";
 import {CoffeeService} from "../../services/coffee.service";
 import {PredefinedCoffeeModel} from "../../models/predefinedCoffee.model";
+import {CoffeeAdditionsService} from "../../services/coffee-additions.service";
+import {PickupLocationModel} from "../../models/pickupLocation.model";
 
 @Component({
   selector: 'app-test',
@@ -15,18 +17,22 @@ import {PredefinedCoffeeModel} from "../../models/predefinedCoffee.model";
   imports: [CommonModule, FormsModule],
   templateUrl: './test.component.html',
   styleUrl: './test.component.css',
-  providers: [OrderService, CoffeeService],
+  providers: [OrderService, CoffeeService, CoffeeAdditionsService],
 })
 export class TestComponent implements OnInit {
   data: OrderModel[] = [];
   predefinedCoffees: PredefinedCoffeeModel[] = [];
+  locations: PickupLocationModel[] = [];
 
-constructor(private orderService: OrderService, private userState: UserStateService, private coffeeService: CoffeeService) {}
+constructor(private orderService: OrderService, private userState: UserStateService, private coffeeService: CoffeeService, private coffeeAdditionsService: CoffeeAdditionsService) {}
   coffee: PredefinedCoffeeModel = new PredefinedCoffeeModel();
 
   ngOnInit(): void {
     this.coffeeService.getCoffees().subscribe((data: PredefinedCoffeeModel[]) => {
       this.predefinedCoffees = data;
+    });
+    this.coffeeAdditionsService.getPickupLocations().subscribe((data: PickupLocationModel[]) => {
+      this.locations = data;
     });
   }
 

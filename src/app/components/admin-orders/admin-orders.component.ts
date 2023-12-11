@@ -39,6 +39,7 @@ export class AdminOrdersComponent {
   updateOrder(order: OrderModel) {
     let orderPickedup = new OrderPickedupDTOModel();
     orderPickedup.isPickedUp = !order.isPickedUp;
+    orderPickedup.pickupTime = new Date();
     this.orderService
       .updateOrder(order.id, orderPickedup)
       .subscribe((data: OrderPickedupDTOModel) => {

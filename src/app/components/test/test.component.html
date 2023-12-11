@@ -1,5 +1,8 @@
 <p>Create test order (not working right now)</p>
 <select (change)="getSelectedValue($event)">
-    <option *ngFor="let coffee of predefinedCoffees" value="{{ coffee }}" ngModel>{{ coffee.name }}</option>
-  </select>
-  <button (click)="addOrder()">Create order</button>
+  <option *ngFor="let coffee of predefinedCoffees" value="{{ coffee }}" ngModel>{{ coffee.name }}</option>
+</select>
+<select (change)="getSelectedValue($event)">
+  <option *ngFor="let location of locations" value="{{ location }}" ngModel>{{ location.shopName }}</option>
+</select>
+<button (click)="addOrder()">Create order</button>

@@ -12,13 +12,13 @@
       <th scope="col" class="px-6 py-3">Pris</th>
       <th scope="col" class="px-6 py-3">Købstidspunkt</th>
       <th scope="col" class="px-6 py-3">Gennemført</th>
+      <th scope="col" class="px-6 py-3">Afl.tidspunkt</th>
       <th scope="col" class="px-6 py-3">Hentet</th>
-      <th scope="col" class="px-6 py-3"></th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let order of data" class="bg-white border-b">
-      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+      <th routerLink="/admin/orders/{{ order.id }}" scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap cursor-pointer">
         {{ order.id }}
       </th>
       <td class="px-6 py-4">{{ order.userId }}</td>
@@ -26,13 +26,9 @@
       <td class="px-6 py-4">{{ order.totalPrice }}</td>
       <td class="px-6 py-4">{{ order.orderTime }}</td>
       <td class="px-6 py-4">{{ order.isCompleted }}</td>
+      <td class="px-6 py-4">{{ order.pickupTime }}</td>
       <td class="px-6 py-4">
         <input type="checkbox" [checked]="order.isPickedUp" (change)="updateOrder(order)" class="w-4 h-4 align-middle">
-      </td>
-      <td>
-        <button (click)="deleteOrder(order)" class="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
-          Slet
-        </button>
       </td>
     </tr>
     </tbody>
