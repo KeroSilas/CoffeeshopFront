@@ -1,9 +1,8 @@
 export class OrderDetailsModel {
-    id = '';
-    orderId = '';
-    predefinedCoffeeId? = '';
-    customCoffeeId? = '';
-    cookieId? = '';
+    id? = '';
+    predefinedCoffeeId?: string;
+    customCoffeeId?: string;
+    cookieId?: string;
     price = 0;
-    quantity = 0;
+    quantity = 1;
 }

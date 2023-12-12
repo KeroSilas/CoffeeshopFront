@@ -16,7 +16,7 @@ export class CoffeeService {
     return this.http.get<PredefinedCoffeeModel[]>(this.baseUrl + 'GetPredefinedCoffees');
   }
 
-  getCoffeeById(id: string): Observable<PredefinedCoffeeModel> {
+  getCoffeeById(id?: string): Observable<PredefinedCoffeeModel> {
     return this.http.get<PredefinedCoffeeModel>(this.baseUrl + 'PredefinedCoffee/' + id);
   }
 

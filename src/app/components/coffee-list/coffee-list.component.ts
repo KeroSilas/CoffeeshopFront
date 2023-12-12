@@ -11,6 +11,9 @@ import { CoffeeDetailComponent } from '../coffee-detail/coffee-detail.component'
 import {UserStateService} from "../../services/user-state.service";
 import {CoffeeService} from "../../services/coffee.service";
 import {MatIconModule} from "@angular/material/icon";
+import {ShoppingCartService} from "../../services/shopping-cart.service";
+import {OrderDetailsModel} from "../../models/orderDetails.model";
+import {Guid} from "guid-typescript";
 
 @Component({
   selector: 'app-coffee-list',
@@ -35,6 +38,7 @@ export class CoffeeListComponent implements OnInit {
     private router: Router,
     private coffeeService: CoffeeService,
     private userState: UserStateService,
+    private shoppingCartService: ShoppingCartService,
   ) {}
 
   ngOnInit(): void {
@@ -46,5 +50,13 @@ export class CoffeeListComponent implements OnInit {
       .subscribe((data: PredefinedCoffeeModel[]) => {
         this.data = data;
       });
+  }
+
+  handleAddToCart(coffee: PredefinedCoffeeModel) {
+    console.log('Added to cart');
+    let orderDetail = new OrderDetailsModel();
+    orderDetail.id = Guid.create().toString();
+    orderDetail.predefinedCoffeeId = coffee.id;
+    this.shoppingCartService.addItemToOrder(orderDetail);
   }
 }

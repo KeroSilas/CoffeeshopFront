@@ -18,12 +18,12 @@ import { AddCoffeeComponent } from './components/add-coffee/add-coffee.component
 import { CoffeeListComponent } from './components/coffee-list/coffee-list.component';
 import { CoffeeDetailComponent } from './components/coffee-detail/coffee-detail.component';
 import { HeaderComponent } from './components/header/header.component';
-import {TestComponent} from "./components/test/test.component";
 import {AdminNavComponent} from "./components/admin-nav/admin-nav.component";
 import {AdminUsersComponent} from "./components/admin-users/admin-users.component";
 import {AdminCoffeesComponent} from "./components/admin-coffees/admin-coffees.component";
 import {AdminDashboardComponent} from "./components/admin-dashboard/admin-dashboard.component";
 import {AdminOrdersComponent} from "./components/admin-orders/admin-orders.component";
+import {ShoppingCartComponent} from "./components/shopping-cart/shopping-cart.component";
 
 @Component({
   selector: 'app-root',
@@ -55,7 +55,7 @@ import {AdminOrdersComponent} from "./components/admin-orders/admin-orders.compo
     AdminOrdersComponent,
     AdminNavComponent,
     HeaderComponent,
-    TestComponent,
+    ShoppingCartComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
