@@ -24,9 +24,9 @@
       <td class="px-6 py-4">{{ order.userId }}</td>
       <td class="px-6 py-4">{{ order.locationId }}</td>
       <td class="px-6 py-4">{{ order.totalPrice }}</td>
-      <td class="px-6 py-4">{{ order.orderTime }}</td>
+      <td class="px-6 py-4" [ngStyle]="{'color': (order.isCompleted) ? 'black' : 'white' }">{{ order.orderTime | date:'short' }}</td>
       <td class="px-6 py-4">{{ order.isCompleted }}</td>
-      <td class="px-6 py-4">{{ order.pickupTime }}</td>
+      <td class="px-6 py-4" [ngStyle]="{'color': (order.isPickedUp) ? 'black' : 'white' }">{{ order.pickupTime | date:'short' }}</td>
       <td class="px-6 py-4">
         <input type="checkbox" [checked]="order.isPickedUp" (change)="updateOrder(order)" class="w-4 h-4 align-middle">
       </td>
