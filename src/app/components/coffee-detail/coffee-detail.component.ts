@@ -14,6 +14,8 @@ import {CommentModel} from "../../models/comment.model";
 import {UserStateService} from "../../services/local/user-state.service";
 import {Guid} from "guid-typescript";
 import {NgArrayPipesModule} from "ngx-pipes";
+import {OrderDetailsModel} from "../../models/orderDetails.model";
+import {ShoppingCartService} from "../../services/local/shopping-cart.service";
 
 @Component({
   selector: 'app-coffee-detail',
@@ -40,6 +42,7 @@ export class CoffeeDetailComponent implements OnInit {
     private service: CoffeeService,
     private commentService: CommentService,
     private userState: UserStateService,
+    private shoppingCartService: ShoppingCartService,
   ) {}
 
   ngOnInit(): void {
@@ -58,6 +61,13 @@ export class CoffeeDetailComponent implements OnInit {
         this.comments = data;
       });
     this.currentUserId = this.userState.getUserId();
+  }
+
+  handleAddToCart(coffee: PredefinedCoffeeModel) {
+    let orderDetail = new OrderDetailsModel();
+    orderDetail.id = Guid.create().toString();
+    orderDetail.predefinedCoffeeId = coffee.id;
+    this.shoppingCartService.addItemToOrder(orderDetail);
   }
 
   addComment(comment: string) {
