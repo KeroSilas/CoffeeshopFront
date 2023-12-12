@@ -14,13 +14,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTableModule } from '@angular/material/table';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { AddCoffeeComponent } from './components/add-coffee/add-coffee.component';
 import { CoffeeListComponent } from './components/coffee-list/coffee-list.component';
 import { CoffeeDetailComponent } from './components/coffee-detail/coffee-detail.component';
 import { HeaderComponent } from './components/header/header.component';
-import {AdminNavComponent} from "./components/admin-nav/admin-nav.component";
 import {AdminUsersComponent} from "./components/admin-users/admin-users.component";
-import {AdminCoffeesComponent} from "./components/admin-coffees/admin-coffees.component";
 import {AdminDashboardComponent} from "./components/admin-dashboard/admin-dashboard.component";
 import {AdminOrdersComponent} from "./components/admin-orders/admin-orders.component";
 import {ShoppingCartComponent} from "./components/shopping-cart/shopping-cart.component";
@@ -46,14 +43,11 @@ import {ShoppingCartComponent} from "./components/shopping-cart/shopping-cart.co
     MatTableModule,
     MatBadgeModule,
     MatSnackBarModule,
-    AddCoffeeComponent,
     CoffeeListComponent,
     CoffeeDetailComponent,
     AdminUsersComponent,
-    AdminCoffeesComponent,
     AdminDashboardComponent,
     AdminOrdersComponent,
-    AdminNavComponent,
     HeaderComponent,
     ShoppingCartComponent,
   ],
