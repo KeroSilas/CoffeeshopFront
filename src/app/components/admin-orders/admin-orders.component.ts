@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {Router, RouterLink} from "@angular/router";
-import {UserStateService} from "../../services/user-state.service";
+import {UserStateService} from "../../services/local/user-state.service";
 import {OrderService} from "../../services/order.service";
 import {OrderModel} from "../../models/order.model";
 import {OrderPickedupDTOModel} from "../../models/DTOs/orderPickedupDTO.model";
@@ -14,7 +14,7 @@ import {OrderPickedupDTOModel} from "../../models/DTOs/orderPickedupDTO.model";
   styleUrl: './admin-orders.component.css',
   providers: [OrderService],
 })
-export class AdminOrdersComponent {
+export class AdminOrdersComponent implements OnInit{
   data: OrderModel[] = [];
 
   constructor(private router: Router, private orderService: OrderService, private userState: UserStateService) {}

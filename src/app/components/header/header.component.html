@@ -8,35 +8,15 @@
     </ng-container>
     <ng-template #loggedIn class="space-x-4">
       <div class="space-x-5">
-        <button mat-icon-button [matMenuTriggerFor]="cart">
-          <mat-icon [matBadge]="1" matBadgeColor="warn">shopping_cart</mat-icon>
+        <button mat-icon-button routerLink="cart">
+          <mat-icon>shopping_cart</mat-icon>
         </button>
         <button mat-icon-button [matMenuTriggerFor]="account">
           <mat-icon>account_circle</mat-icon>
         </button>
       </div>
     </ng-template>
-    <!--
-    <ng-template #loggedOut>
-      <div class="space-x-10">
-        <a routerLink="signup" class="text-gray-900 align-text-bottom">Registrer</a>
-        <a routerLink="login" class="text-gray-900 align-text-bottom">Log ind</a>
-      </div>
-    </ng-template>
-    -->
   </div>
-  <mat-menu #cart="matMenu">
-    <div class="p-3 divide-y divide-solid">
-      <div class="pb-3 flex justify-between">
-        <span class="mr-16">1 items</span>
-        <a routerLink="cart">Se indkøbskurv</a>
-      </div>
-      <div class="flex justify-between font-light mb-2">
-        Keyboard x 1
-        <span class="font-bold">{{ "150" | currency: "DKK" }}</span>
-      </div>
-    </div>
-  </mat-menu>
   <mat-menu #account="matMenu">
     <div class="p-2 ml-2 grid-cols-1 space-y-3">
       <div>

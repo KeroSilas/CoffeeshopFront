@@ -23,7 +23,7 @@
       </th>
       <td class="px-6 py-4">{{ order.userId }}</td>
       <td class="px-6 py-4">{{ order.locationId }}</td>
-      <td class="px-6 py-4">{{ order.totalPrice }}</td>
+      <td class="px-6 py-4">{{ order.totalPrice | currency: "DKK"}}</td>
       <td class="px-6 py-4" [ngStyle]="{'color': (order.isCompleted) ? 'black' : 'white' }">{{ order.orderTime | date:'short' }}</td>
       <td class="px-6 py-4">{{ order.isCompleted }}</td>
       <td class="px-6 py-4" [ngStyle]="{'color': (order.isPickedUp) ? 'black' : 'white' }">{{ order.pickupTime | date:'short' }}</td>

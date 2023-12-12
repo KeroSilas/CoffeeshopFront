@@ -8,10 +8,10 @@ import {
   RouterOutlet,
 } from '@angular/router';
 import { CoffeeDetailComponent } from '../coffee-detail/coffee-detail.component';
-import {UserStateService} from "../../services/user-state.service";
+import {UserStateService} from "../../services/local/user-state.service";
 import {CoffeeService} from "../../services/coffee.service";
 import {MatIconModule} from "@angular/material/icon";
-import {ShoppingCartService} from "../../services/shopping-cart.service";
+import {ShoppingCartService} from "../../services/local/shopping-cart.service";
 import {OrderDetailsModel} from "../../models/orderDetails.model";
 import {Guid} from "guid-typescript";
 
@@ -53,7 +53,6 @@ export class CoffeeListComponent implements OnInit {
   }
 
   handleAddToCart(coffee: PredefinedCoffeeModel) {
-    console.log('Added to cart');
     let orderDetail = new OrderDetailsModel();
     orderDetail.id = Guid.create().toString();
     orderDetail.predefinedCoffeeId = coffee.id;

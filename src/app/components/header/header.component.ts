@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -6,7 +6,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
 import { RouterLink } from '@angular/router';
-import { UserStateService } from '../../services/user-state.service';
+import { UserStateService } from '../../services/local/user-state.service';
+import {CoffeeService} from "../../services/coffee.service";
 
 @Component({
   selector: 'app-header',
@@ -22,9 +23,13 @@ import { UserStateService } from '../../services/user-state.service';
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
+  providers: [CoffeeService],
 })
 export class HeaderComponent {
-  constructor(private userState: UserStateService) {}
+
+  constructor(
+    private userState: UserStateService,
+  ) {}
 
   isLoggedIn(): boolean {
     return this.userState.isLoggedIn();

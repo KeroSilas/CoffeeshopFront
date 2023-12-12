@@ -1,14 +1,43 @@
-<p>this works</p>
-<div *ngFor="let item of coffees">
-  <p>
-    {{item.name}}
-  </p>
+<body class="space-y-4">
+<div class="relative overflow-x-auto">
+  <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+    <tr>
+      <th scope="col" class="px-6 py-3">Kaffe navn</th>
+      <th scope="col" class="px-6 py-3">Pris</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let coffee of coffees" class="bg-white border-b">
+      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+        {{ coffee.name }}
+      </th>
+      <td class="px-6 py-4">{{ coffee.price | currency: "DKK" }}</td>
+    </tr>
+    </tbody>
+  </table>
 </div>
-<div>
-  <select (change)="getSelectedValue($event)" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-    <option *ngFor="let location of locations" value="{{location}}">{{location.shopName}}</option>
-  </select>
-  <button (click)="confirmOrder()" class="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
-    Confirm Order
+<div class="flex flex-row gap-4 justify-between">
+  <div class="flex flex-row gap-4">
+    <div>
+      <label
+        class="block mb-1 text-sm font-medium text-gray-900"
+      >Afhentningssted</label>
+      <select [(ngModel)]="selectedLocation" class="w-60 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5">
+        <option *ngFor="let location of locations" [ngValue]="location">{{location.shopName}}</option>
+      </select>
+    </div>
+    <div>
+      <label
+        class="block mb-1 text-sm font-medium text-gray-900"
+      >Afhentningstidspunkt</label>
+      <select class="w-60 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5">
+        <option></option>
+      </select>
+    </div>
+  </div>
+  <button [disabled]="selectedLocation.shopName? '' || order.orderDetails.length === 0 : true" (click)="confirmOrder()" class="px-8 text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm w-full sm:w-auto py-2.5 text-center disabled:bg-gray-300">
+    Bekræft ordre
   </button>
 </div>
+</body>

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {Router, RouterLink} from "@angular/router";
-import {UserStateService} from "../../services/user-state.service";
+import {UserStateService} from "../../services/local/user-state.service";
 
 @Component({
   selector: 'app-admin-dashboard',

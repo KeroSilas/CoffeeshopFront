@@ -4,7 +4,7 @@ import {UserService} from "../../services/user.service";
 import {UserModel} from "../../models/user.model";
 import {UserAdminDTOModel} from "../../models/DTOs/userAdminDTO.model";
 import {Router, RouterLink} from "@angular/router";
-import {UserStateService} from "../../services/user-state.service";
+import {UserStateService} from "../../services/local/user-state.service";
 
 @Component({
   selector: 'app-admin-users',
