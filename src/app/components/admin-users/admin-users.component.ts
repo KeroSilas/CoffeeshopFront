@@ -28,14 +28,6 @@ export class AdminUsersComponent implements OnInit {
     }
   }
 
-  deleteUser(user: UserModel) {
-    if (confirm('Are you sure you want to delete ' + user.username + '?')) {
-      this.userService.deleteUser(user.id).subscribe((data: UserModel) => {
-        this.data = this.data.filter((u) => u !== user);
-      });
-    }
-  }
-
   updateUser(user: UserModel) {
     let userAdmin = new UserAdminDTOModel();
     userAdmin.isAdmin = !user.isAdmin;

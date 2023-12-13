@@ -1,15 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import {RouterLink} from "@angular/router";
-import {Guid} from "guid-typescript";
-import {CustomCoffeeModel} from "../../models/customCoffee.model";
-import {CustCoffeeService} from "../../services/cust-coffee.service";
-
-
-
-
-
+import { RouterLink } from '@angular/router';
+import { Guid } from 'guid-typescript';
+import { CustomCoffeeModel } from '../../models/customCoffee.model';
+import { CustCoffeeService } from '../../services/cust-coffee.service';
 
 @Component({
   selector: 'app-cust-coffee',
@@ -19,14 +14,10 @@ import {CustCoffeeService} from "../../services/cust-coffee.service";
   styleUrl: './cust-coffee.component.css',
   providers: [CustCoffeeService],
 })
-
-export class custcoffeeComponent {
+export class CustCoffeeComponent {
   data: CustomCoffeeModel[] = [];
 
-
-  constructor(
-    private service: CustCoffeeService) {
-  }
+  constructor(private service: CustCoffeeService) {}
 
   handleAddCustCoffee(formData: any) {
     this.addCustCoffee(formData.value);
@@ -39,9 +30,11 @@ export class custcoffeeComponent {
     newCustCoffee.beanId = coffee.beanId;
     newCustCoffee.brewingId = coffee.brewingId;
     newCustCoffee.price = coffee.price;
-    this.service.createCustCoffee(newCustCoffee).subscribe((data: CustomCoffeeModel) => {
-      console.log(data);
-      this.data.push(data);
-    });
+    this.service
+      .createCustCoffee(newCustCoffee)
+      .subscribe((data: CustomCoffeeModel) => {
+        console.log(data);
+        this.data.push(data);
+      });
   }
 }

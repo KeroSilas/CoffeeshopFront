@@ -1,70 +1,81 @@
 <body class="space-y-6 mx-auto max-w-3xl pb-6 px-4">
-<div class="rounded-lg flex flex-row gap-4">
-  <img
-    src="../../../assets/images/{{ coffee.image }}"
-    alt="{{ coffee.image }}"
-    class="object-cover rounded-lg max-h-96 min-h-96 h-96 w-96 max-w-96 min-w-96"
-  />
-  <div class="flex flex-col justify-between w-96 max-w-96 min-w-96">
-    <div
-      class="flex flex-col px-0.5"
-    >
-      <p class="text-gray-900 font-bold text-base">
-        {{ coffee.name }}
-      </p>
-      <p class="text-gray-900 -translate-y-2.5">
-        {{ coffee.price | currency: "DKK" }}
-      </p>
-      <p class="text-gray-900">
-        {{ coffee.description }}
-      </p>
-    </div>
-    <div class="flex gap-2">
-      <button
-        class="px-2.5 pt-2.5 pb-1 bg-red-100 hover:bg-red-200 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-lg sm:w-auto text-center"
-      >
-        <mat-icon style="color: #212121">favorite_outline</mat-icon>
-      </button>
-      <button
-        (click)="handleAddToCart(coffee)"
-        class="grow px-2.5 pt-2.5 pb-1 bg-emerald-100 hover:bg-emerald-200 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-lg sm:w-auto text-center"
-      >
-        <mat-icon style="color: #212121">add_shopping_cart</mat-icon>
-      </button>
+  <div class="rounded-lg flex flex-row gap-4">
+    <img
+      src="../../../assets/images/{{ coffee.image }}"
+      alt="{{ coffee.image }}"
+      class="object-cover rounded-lg max-h-96 min-h-96 h-96 w-96 max-w-96 min-w-96"
+    />
+    <div class="flex flex-col justify-between w-96 max-w-96 min-w-96">
+      <div class="flex flex-col px-0.5">
+        <p class="text-gray-900 font-bold text-base">
+          {{ coffee.name }}
+        </p>
+        <p class="text-gray-900 -translate-y-2.5">
+          {{ coffee.price | currency: "DKK" }}
+        </p>
+        <p class="text-gray-900">
+          {{ coffee.description }}
+        </p>
+      </div>
+      <div class="flex gap-2">
+        <button
+          class="px-2.5 pt-2.5 pb-1 bg-red-100 hover:bg-red-200 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-lg sm:w-auto text-center"
+        >
+          <mat-icon style="color: #212121">favorite_outline</mat-icon>
+        </button>
+        <button
+          (click)="handleAddToCart(coffee)"
+          class="grow px-2.5 pt-2.5 pb-1 bg-emerald-100 hover:bg-emerald-200 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-lg sm:w-auto text-center"
+        >
+          <mat-icon style="color: #212121">add_shopping_cart</mat-icon>
+        </button>
+      </div>
     </div>
   </div>
-</div>
-<div>
-  <p class="pl-0.5 text-gray-900 font-bold text-base translate-y-1.5">
-    Kommentarer
-  </p>
-  <div class="flex flex-row gap-2 mb-4">
-    <textarea #comment rows="2" placeholder="Skriv en kommentar..." class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"></textarea>
-    <button (click)="addComment(comment.value)"
-            class="text-white bg-gray-500 hover:bg-gray-600 h-16 px-5 pt-2.5 pb-1 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-lg sm:w-auto text-center"
-    >
-      <mat-icon style="color: #ffffff">add_comment</mat-icon>
-    </button>
-  </div>
-  <hr class="my-2 mb-4 border-gray-200">
-  <div *ngFor="let comment of comments" class="px-4 py-1 my-3 border rounded-lg bg-gray-50 border-gray-300 text-gray-900">
-    <div class="flex flex-row justify-between translate-y-3">
-      <p class="text-gray-900 font-bold text-sm">
-        {{ comment.userId }}
-      </p>
-      <div class="flex flex-row">
-      <p class="text-gray-900 text-sm">
-        {{ comment.commentTime | date: "dd/MM/yyyy" }}
-      </p>
-      <button (click)="deleteComment(comment.id)" *ngIf="comment.userId == currentUserId" class="bg-opacity-25 translate-x-2.5 -translate-y-2.5 px-1 pt-1 bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-lg sm:w-auto text-center">
-        <mat-icon style="color: #ffffff">delete_outline</mat-icon>
-      </button>
-      </div>
-      </div>
-    <hr class="my-2 border-gray-300">
-    <p>
-      {{ comment.content }}
+  <div>
+    <p class="pl-0.5 text-gray-900 font-bold text-base translate-y-1.5">
+      Kommentarer
     </p>
+    <div class="flex flex-row gap-2 mb-4">
+      <textarea
+        #comment
+        rows="2"
+        placeholder="Skriv en kommentar..."
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+      ></textarea>
+      <button
+        (click)="addComment(comment.value)"
+        class="text-white bg-gray-500 hover:bg-gray-600 h-16 px-5 pt-2.5 pb-1 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-lg sm:w-auto text-center"
+      >
+        <mat-icon style="color: #ffffff">add_comment</mat-icon>
+      </button>
+    </div>
+    <hr class="my-2 mb-4 border-gray-200" />
+    <div
+      *ngFor="let comment of comments"
+      class="px-4 py-1 my-3 border rounded-lg bg-gray-50 border-gray-300 text-gray-900"
+    >
+      <div class="flex flex-row justify-between translate-y-3">
+        <p class="text-gray-900 font-bold text-sm">
+          {{ comment.userId }}
+        </p>
+        <div class="flex flex-row">
+          <p class="text-gray-900 text-sm">
+            {{ comment.commentTime | date: "dd/MM/yyyy" }}
+          </p>
+          <button
+            (click)="deleteComment(comment.id)"
+            *ngIf="comment.userId == currentUserId"
+            class="bg-opacity-25 translate-x-2.5 -translate-y-2.5 px-1 pt-1 bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-lg sm:w-auto text-center"
+          >
+            <mat-icon style="color: #ffffff">delete_outline</mat-icon>
+          </button>
+        </div>
+      </div>
+      <hr class="my-2 border-gray-300" />
+      <p>
+        {{ comment.content }}
+      </p>
+    </div>
   </div>
-</div>
 </body>

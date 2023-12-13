@@ -1,6 +1,6 @@
 export class PickupLocationModel {
-    id = "";
-    shopName: string = "";
-    address: string = "";
-    phone: number = 0;
+  id = '';
+  shopName = '';
+  address = '';
+  phone = 0;
 }

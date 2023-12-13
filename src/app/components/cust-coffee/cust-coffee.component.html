@@ -1,10 +1,11 @@
 <body xmlns="http://www.w3.org/1999/html">
-<form #formData="ngForm" (ngSubmit)="handleAddCustCoffee(formData)">
-  <div class="grid gap-6 mb-6 md:grid-cols-1">
-    <div>
-      <label
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-      >CoffeeBean</label>
+  <form #formData="ngForm" (ngSubmit)="handleAddCustCoffee(formData)">
+    <div class="grid gap-6 mb-6 md:grid-cols-1">
+      <div>
+        <label
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+          >CoffeeBean</label
+        >
         <select>
           <option value="1">Arabica</option>
           <option value="2">Robusta</option>
@@ -13,37 +14,36 @@
           <option value="5">Stenophylla</option>
           <option value="6">Maragogipe</option>
         </select>
-      />
+        />
+      </div>
+      <div>
+        <label
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+          >Brewingmethod</label
+        >
+        <select>
+          <option value="1">Espresso</option>
+          <option value="2">Drip</option>
+          <option value="3">French Press</option>
+          <option value="4">Cold Brew</option>
+          <option value="5">Pour Over</option>
+          <option value="6">Aeropress</option>
+        </select>
+      </div>
+      <div>
+        <label
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+          >Price</label
+        >
+        <input
+          type="number"
+          name="price"
+          ngModel
+          #price="ngModel"
+          required
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        />
+      </div>
     </div>
-    <div>
-      <label
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-      >Brewingmethod</label>
-      <select>
-        <option value="1">Espresso</option>
-        <option value="2">Drip</option>
-        <option value="3">French Press</option>
-        <option value="4">Cold Brew</option>
-        <option value="5">Pour Over</option>
-        <option value="6">Aeropress</option>
-      </select>
-    </div>
-    <div>
-      <label
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-      >Price</label>
-      <input
-        type="number"
-        name="price"
-        ngModel
-        #price="ngModel"
-        required
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-      />
-    </div>
-  </div>
-</form>
+  </form>
 </body>
-```
-
-

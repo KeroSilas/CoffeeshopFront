@@ -27,8 +27,14 @@ export class CoffeeAdditionsService {
     return this.http.post<AdditionModel>(this.baseUrl + 'addition/', addition);
   }
 
-  updateAddition(id: string, addition: AdditionModel): Observable<AdditionModel> {
-    return this.http.put<AdditionModel>(this.baseUrl + 'addition/' + id, addition);
+  updateAddition(
+    id: string,
+    addition: AdditionModel,
+  ): Observable<AdditionModel> {
+    return this.http.put<AdditionModel>(
+      this.baseUrl + 'addition/' + id,
+      addition,
+    );
   }
 
   deleteAddition(id: string): Observable<AdditionModel> {
@@ -56,23 +62,40 @@ export class CoffeeAdditionsService {
   }
 
   getBrewingMethods(): Observable<BrewingMethodModel[]> {
-    return this.http.get<BrewingMethodModel[]>(this.baseUrl + 'GetBrewingMethods/');
+    return this.http.get<BrewingMethodModel[]>(
+      this.baseUrl + 'GetBrewingMethods/',
+    );
   }
 
   getBrewingMethodById(id: string): Observable<BrewingMethodModel> {
-    return this.http.get<BrewingMethodModel>(this.baseUrl + 'brewingmethod/' + id);
+    return this.http.get<BrewingMethodModel>(
+      this.baseUrl + 'brewingmethod/' + id,
+    );
   }
 
-  createBrewingMethod(brewingMethod: BrewingMethodModel): Observable<BrewingMethodModel> {
-    return this.http.post<BrewingMethodModel>(this.baseUrl + 'brewingmethod/', brewingMethod);
+  createBrewingMethod(
+    brewingMethod: BrewingMethodModel,
+  ): Observable<BrewingMethodModel> {
+    return this.http.post<BrewingMethodModel>(
+      this.baseUrl + 'brewingmethod/',
+      brewingMethod,
+    );
   }
 
-  updateBrewingMethod(id: string, brewingMethod: BrewingMethodModel): Observable<BrewingMethodModel> {
-    return this.http.put<BrewingMethodModel>(this.baseUrl + 'brewingmethod/' + id, brewingMethod);
+  updateBrewingMethod(
+    id: string,
+    brewingMethod: BrewingMethodModel,
+  ): Observable<BrewingMethodModel> {
+    return this.http.put<BrewingMethodModel>(
+      this.baseUrl + 'brewingmethod/' + id,
+      brewingMethod,
+    );
   }
 
   deleteBrewingMethod(id: string): Observable<BrewingMethodModel> {
-    return this.http.delete<BrewingMethodModel>(this.baseUrl + 'brewingmethod/' + id);
+    return this.http.delete<BrewingMethodModel>(
+      this.baseUrl + 'brewingmethod/' + id,
+    );
   }
 
   getCoffeeBeans(): Observable<CoffeeBeanModel[]> {
@@ -84,11 +107,20 @@ export class CoffeeAdditionsService {
   }
 
   createCoffeeBean(coffeeBean: CoffeeBeanModel): Observable<CoffeeBeanModel> {
-    return this.http.post<CoffeeBeanModel>(this.baseUrl + 'coffeebean/', coffeeBean);
+    return this.http.post<CoffeeBeanModel>(
+      this.baseUrl + 'coffeebean/',
+      coffeeBean,
+    );
   }
 
-  updateCoffeeBean(id: string, coffeeBean: CoffeeBeanModel): Observable<CoffeeBeanModel> {
-    return this.http.put<CoffeeBeanModel>(this.baseUrl + 'coffeebean/' + id, coffeeBean);
+  updateCoffeeBean(
+    id: string,
+    coffeeBean: CoffeeBeanModel,
+  ): Observable<CoffeeBeanModel> {
+    return this.http.put<CoffeeBeanModel>(
+      this.baseUrl + 'coffeebean/' + id,
+      coffeeBean,
+    );
   }
 
   deleteCoffeeBean(id: string): Observable<CoffeeBeanModel> {
@@ -96,23 +128,39 @@ export class CoffeeAdditionsService {
   }
 
   getPickupLocations(): Observable<PickupLocationModel[]> {
-    return this.http.get<PickupLocationModel[]>(this.baseUrl + 'GetPickupLocations/');
+    return this.http.get<PickupLocationModel[]>(
+      this.baseUrl + 'GetPickupLocations/',
+    );
   }
 
   getPickupLocationById(id: string): Observable<PickupLocationModel> {
-    return this.http.get<PickupLocationModel>(this.baseUrl + 'pickuplocation/' + id);
+    return this.http.get<PickupLocationModel>(
+      this.baseUrl + 'pickuplocation/' + id,
+    );
   }
 
-  createPickupLocation(pickupLocation: PickupLocationModel): Observable<PickupLocationModel> {
-    return this.http.post<PickupLocationModel>(this.baseUrl + 'pickuplocation/', pickupLocation);
+  createPickupLocation(
+    pickupLocation: PickupLocationModel,
+  ): Observable<PickupLocationModel> {
+    return this.http.post<PickupLocationModel>(
+      this.baseUrl + 'pickuplocation/',
+      pickupLocation,
+    );
   }
 
-  updatePickupLocation(id: string, pickupLocation: PickupLocationModel): Observable<PickupLocationModel> {
-    return this.http.put<PickupLocationModel>(this.baseUrl + 'pickuplocation/' + id, pickupLocation);
+  updatePickupLocation(
+    id: string,
+    pickupLocation: PickupLocationModel,
+  ): Observable<PickupLocationModel> {
+    return this.http.put<PickupLocationModel>(
+      this.baseUrl + 'pickuplocation/' + id,
+      pickupLocation,
+    );
   }
 
   deletePickupLocation(id: string): Observable<PickupLocationModel> {
-    return this.http.delete<PickupLocationModel>(this.baseUrl + 'pickuplocation/' + id);
+    return this.http.delete<PickupLocationModel>(
+      this.baseUrl + 'pickuplocation/' + id,
+    );
   }
-
 }

@@ -1,11 +1,10 @@
 <mat-toolbar
   class="border-x border-transparent justify-between"
-  style="background-color: transparent; margin-bottom: 24px;"
+  style="background-color: transparent; margin-bottom: 24px"
 >
   <a routerLink="" class="text-2xl text-gray-900">Kaffekunstens Forening</a>
   <div>
-    <ng-container *ngIf="isLoggedIn(); then loggedIn;">
-    </ng-container>
+    <ng-container *ngIf="isLoggedIn(); then loggedIn"> </ng-container>
     <ng-template #loggedIn class="space-x-4">
       <div class="space-x-5">
         <button mat-icon-button routerLink="cart">
@@ -22,7 +21,7 @@
       <div>
         <a routerLink="profile">Profil</a>
       </div>
-      <div *ngIf="isAdmin();">
+      <div *ngIf="isAdmin()">
         <a routerLink="admin">Administrer</a>
       </div>
       <div>

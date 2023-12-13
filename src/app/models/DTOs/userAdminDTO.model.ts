@@ -1,3 +1,3 @@
 export class UserAdminDTOModel {
-  isAdmin: boolean = false;
+  isAdmin = false;
 }

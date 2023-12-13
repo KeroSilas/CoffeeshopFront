@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import {OrderModel} from "../../models/order.model";
-import {OrderDetailsModel} from "../../models/orderDetails.model";
-import {Observable} from "rxjs";
+import { OrderModel } from '../../models/order.model';
+import { OrderDetailsModel } from '../../models/orderDetails.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ShoppingCartService {
   private order = new OrderModel();

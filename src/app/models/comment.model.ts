@@ -1,7 +1,7 @@
 export class CommentModel {
-  id = "";
-  userId = "";
-  predefinedCoffeeId = "";
-  commentTime: Date = new Date();
-  content = "";
+  id = '';
+  userId = '';
+  predefinedCoffeeId = '';
+  commentTime = new Date();
+  content = '';
 }

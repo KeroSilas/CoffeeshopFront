@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   Router,
@@ -8,14 +8,14 @@ import {
 } from '@angular/router';
 import { CoffeeService } from '../../services/coffee.service';
 import { PredefinedCoffeeModel } from '../../models/predefinedCoffee.model';
-import {MatIconModule} from "@angular/material/icon";
-import {CommentService} from "../../services/comment.service";
-import {CommentModel} from "../../models/comment.model";
-import {UserStateService} from "../../services/local/user-state.service";
-import {Guid} from "guid-typescript";
-import {NgArrayPipesModule} from "ngx-pipes";
-import {OrderDetailsModel} from "../../models/orderDetails.model";
-import {ShoppingCartService} from "../../services/local/shopping-cart.service";
+import { MatIconModule } from '@angular/material/icon';
+import { CommentService } from '../../services/comment.service';
+import { CommentModel } from '../../models/comment.model';
+import { UserStateService } from '../../services/local/user-state.service';
+import { Guid } from 'guid-typescript';
+import { NgArrayPipesModule } from 'ngx-pipes';
+import { OrderDetailsModel } from '../../models/orderDetails.model';
+import { ShoppingCartService } from '../../services/local/shopping-cart.service';
 
 @Component({
   selector: 'app-coffee-detail',

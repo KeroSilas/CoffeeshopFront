@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {CustomCoffeeModel} from "../models/customCoffee.model";
-
+import { CustomCoffeeModel } from '../models/customCoffee.model';
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +17,4 @@ export class CustCoffeeService {
       coffee,
     );
   }
-
 }
-

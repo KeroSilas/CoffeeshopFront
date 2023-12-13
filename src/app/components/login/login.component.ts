@@ -32,14 +32,14 @@ export class LoginComponent {
   }
 
   login(user: UserLoginModel) {
-      this.service.login(user).subscribe(
+    this.service.login(user).subscribe(
       (data: UserModel) => {
         this.userState.login(data);
         this.router.navigate(['/']).then((r) => console.log(r));
       },
       () => {
         alert('Incorrect username or password.');
-      }
+      },
     );
   }
 }
