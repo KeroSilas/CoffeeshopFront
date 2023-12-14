@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { OrderModel } from '../models/order.model';
 import { OrderPickedupDTOModel } from '../models/DTOs/orderPickedupDTO.model';
+import { Guid } from 'guid-typescript';
 
 @Injectable({
   providedIn: 'root',
@@ -20,8 +21,8 @@ export class OrderService {
     return this.http.get<OrderModel>(this.baseUrl + id);
   }
 
-  createOrder(user: OrderModel): Observable<OrderModel> {
-    return this.http.post<OrderModel>(this.baseUrl, user);
+  createOrder(order: OrderModel): Observable<OrderModel> {
+    return this.http.post<OrderModel>(this.baseUrl, order);
   }
 
   updateOrder(id: string, order: OrderPickedupDTOModel): Observable<any> {

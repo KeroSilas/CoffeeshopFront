@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { UserStateService } from '../../services/local/user-state.service';
 import { EmailService } from '../../services/email.service';
 import { EmailModel } from '../../models/email.model';
+import { Guid } from 'guid-typescript';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -66,6 +67,7 @@ export class ShoppingCartComponent implements OnInit {
 
   confirmOrder() {
     let newOrder = this.order;
+    newOrder.id = Guid.create().toString();
     newOrder.userId = this.userStateService.getUser().id;
     newOrder.locationId = this.selectedLocation.id;
     newOrder.pickupTime = this.selectedTime;
@@ -77,13 +79,18 @@ export class ShoppingCartComponent implements OnInit {
       to: this.userStateService.getUser().email,
       subject: 'Order Confirmation',
       message:
-        'Your order has been placed and will be ready for pickup at ' +
-        this.selectedTime +
-        ' at ' +
+        'Din bestilling er blevet placeret, og vil være klar til afhentning ved' +
         this.selectedLocation.shopName +
+        ' på ' +
+        this.selectedTime +
+        '.\n' +
+        'Oplys disse 4 cifre ved afhentning: ' +
+        newOrder.id.substring(0, 4) +
         '.',
     };
-    this.emailService.sendEmail(email);
+    this.emailService.sendEmail(email).subscribe((data) => {
+      console.log(data);
+    });
   }
 
   getAvailablePickupTimes() {
