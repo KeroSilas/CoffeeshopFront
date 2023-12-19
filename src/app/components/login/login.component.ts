@@ -28,7 +28,6 @@ export class LoginComponent {
 
   handleLogin(formData: any) {
     this.login(formData.value);
-    //formData.reset();
   }
 
   login(user: UserLoginModel) {

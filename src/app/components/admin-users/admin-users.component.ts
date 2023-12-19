@@ -20,12 +20,12 @@ export class AdminUsersComponent implements OnInit {
   constructor(private router: Router, private userService: UserService, private userState: UserStateService) {}
 
   ngOnInit(): void {
-    this.userService.getUsers().subscribe((data: UserModel[]) => {
-      this.data = data;
-    });
     if (!this.userState.isAdmin()) {
       this.router.navigate(['']).then((r) => console.log(r));
     }
+    this.userService.getUsers().subscribe((data: UserModel[]) => {
+      this.data = data;
+    });
   }
 
   updateUser(user: UserModel) {

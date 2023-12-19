@@ -20,12 +20,12 @@ export class AdminOrdersComponent implements OnInit{
   constructor(private router: Router, private orderService: OrderService, private userState: UserStateService) {}
 
   ngOnInit(): void {
-    this.orderService.getOrders().subscribe((data: OrderModel[]) => {
-      this.data = data;
-    });
     if (!this.userState.isAdmin()) {
       this.router.navigate(['']).then((r) => console.log(r));
     }
+    this.orderService.getOrders().subscribe((data: OrderModel[]) => {
+      this.data = data;
+    });
   }
 
   deleteOrder(order: OrderModel) {
