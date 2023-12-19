@@ -17,7 +17,7 @@ routes = [
   { path: 'coffee/create', component: CustCoffeeComponent }, // Create custom coffee
   { path: 'coffee/:id', component: CoffeeDetailComponent },
   { path: 'cart', component: ShoppingCartComponent }, // Shopping cart details
-  //{ path: 'order', component: OrderComponent }, // Ordering process
+  //{ path: 'receipt/:id', component: ReceiptComponent },
   { path: 'admin', component: AdminDashboardComponent }, // Overview of upcoming orders, etc.
   { path: 'admin/orders', component: AdminOrdersComponent }, // List of orders
   { path: 'admin/orders/:id', component: AdminOrderDetailComponent },
